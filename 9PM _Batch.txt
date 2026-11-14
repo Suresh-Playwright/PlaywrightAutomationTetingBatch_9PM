@@ -1,0 +1,1182 @@
+Variales , DataTypes and Operators:
+-----------------------------------
+We want to store a student's name , age and marks in a program. How can we store these values ?
+
+To store some information , we use variables . To identify the kind of information, we use data types And to perform calculations or comparisions we use operators.
+
+Variables :
+-------------
+
+A variable is a named container used to store data in a program.
+In JavaScript we can declare variables using three keywords: var , let , const.
+
+let name1="Rahul"
+let age=20
+const college="ABC College";
+console.log(name1)
+console.log(age)
+console.log(college)
+
+
+
+-> Here , name1 , age , college are variables
+-> The let keyword is used when a variable value may change.
+-> The const keyword is used when we do not want to re-assign a variable.
+
+-> The var keyword is an older way to declare variables.
+
+If i write let age=20; it means I am creating a variable called age
+and storing the value 20 in it.
+
+*** In Modern JavaScript, we generally prefer let and const.
+
+Data Types :
+------------
+A data type tells us what kind of value we are storing in a variable.
+
+A person name is text , age is number , whether a student passed or failed can be represented using true or false.
+
+1. Number :
+
+It is used for integers and decimal numbers.
+let age=20;
+let price=99.5;
+console.log(age)
+console.log(price)
+console.log(typeof age)
+console.log(typeof price)
+
+
+String:
+-------
+It is used to store text inside quotes
+
+let name1="Suresh"
+let name2='Praveen'
+let name3=`Sandhya`
+
+console.log(typeof name1)
+console.log(typeof name2)
+console.log(typeof name3)
+
+
+You have to declare either single quotes , double quotes and backticks (``).
+
+
+Boolean:
+--------
+
+Stores either true or false.
+
+
+let isPassed=true;
+let isLoggedIn=false;
+console.log(typeof isPassed)
+console.log(typeof isLoggedIn)
+
+
+Undefined :
+-----------
+A declared variable that has not been assigned a value.
+
+let result;
+console.log(result)
+console.log(typeof result)
+
+Null:
+=====
+
+Represents an Intentional absene of value.
+
+let result=null;
+console.log(result)
+console.log(typeof result)
+
+
+Object :
+--------
+
+It is used to group realted information;
+
+
+let student={
+
+   // key : value
+
+name:"Rahul",
+age:20
+
+}
+console.log(student)
+console.log(student.name)
+console.log(student.age)
+
+
+let student={
+
+   // key : value
+
+name:"Rahul",
+age:20
+
+}
+student.name=null;
+console.log(student)
+console.log(student.name)
+console.log(student.age)
+console.log(typeof student)
+
+
+
+
+
+
+
+Operators:
+-----------
+
+If I give you 10 ruppees and then another 20 ruppees , how much money do you have ?
+
+In JavaScript, we also use + for addition , These symbols that perform operations on values or variables are called Operators.
+
+let a=10;
+let b=20;
+console.log(a+b)
+
+Here a and b are operands,  and + is the Operator.
+
+
+Types of Operators:
+-------------------
+1. Arithmatic Operators
+2. Assignement Operators
+3. Comparision Operators
+4. Logical Operators
+5. Increment and Decrement Operators
+6. String Join Text (+)
+7. Ternary Operator
+
+1. Arithmatic Operators:
+
+
+Arithmatic Operators are used to perform mathematical Calculations Just like a calculator.
+
+
+Addition +
+
+let a=10;
+let b=20;
+
+console.log(a+b) // 30
+
+
+Subtraction -
+
+console.log(a-b); // -10
+
+
+Multiplication *
+
+console.log(a*b) ; //200
+
+
+Divison :
+
+
+console.log(10/20);//0.5
+
+
+Remainder :
+
+
+console.log(a%b) ; 10
+
+Exponentiation: **
+
+console.log(10**20)
+
+
+Example:
+
+let a=10;
+let b=20;
+console.log(a+b);
+console.log(a-b);
+console.log(a*b);
+console.log(a/b);
+console.log(a%b);
+console.log(a**b)
+
+
+Assignment Operators:
+---------------------
+Assignment operators assign values to variables or updated the values alredy stored in them.
+
+let amount=100;
+
+amount = amount +50;
+
+console.log(amount);
+
+let amount=100;
+
+amount += 50; // amount = amount +50;
+console.log(amount);
+amount -=20; // amount = amount -20;
+console.log(amount);
+amount *=2; // amount=amount *2;
+console.log(amount);
+amount /=2; // amount=amount / 2;
+
+console.log(amount);
+
+
+
+Comparision Operators:
+----------------------
+Comparision Operators comapre two values, the result is a Boolean true or false.
+
+
+
+let age=20;
+console.log(age>18) ; // true
+console.log(age<18) ; // false
+console.log(age>=20); // true
+console.log(age<=18); // false
+console.log(age===20); // true
+console.log(age!==20);  // false
+
+== and === ?
+
+== Only checks the value don't consider about data types
+
+=== It will check both data types and values.
+let age=20;
+console.log(age>18) ; // true
+console.log(age<18) ; // false
+console.log(age>=20); // true
+console.log(age<=18); // false
+ // true
+console.log(age!==20);  // false
+console.log(age=="20"); // true
+console.log(age===20); // true
+console.log(age==="20") ;// false
+
+console.log(age!=20); false
+console.log(age!==20);  // false
+
+
+Logical Operators:
+-------------------
+
+Logical operators are used when a condition depends on one or more other conditions.
+ AND (&&) , OR ( || ) , NOT (!)
+
+AND (&&):  Both conditions must be true.
+
+let age=22;
+let hasId=true;
+
+console.log(age>=18 && hasId==true); // true
+
+
+
+let age=22;
+let hasId=false;
+
+console.log(age>=18 && hasId==true); // false
+
+
+
+let age=22;
+let hasId=false;
+
+console.log(age>=18 || hasId==true);
+
+Any one of the condition must be true in OR Operator
+
+
+NOT ! : Reverse the Boolean Value
+
+let age=22;
+let hasId=true;
+
+console.log(age>=18 && !hasId);
+
+
+
+
+Increment and Decrement Operators:
+----------------------------------
+
+++  - Increases tthe value by one
+
+-- - Decreases the value by one
+
+let count=5;
+count++; // count =count +1
+console.log(count) ; // 6
+count --; // count =count -1;
+console.log(count)
+
+Prefix and Postfix:
+
+Postfix : a++ returns the current value before increment it.
+
+Prefix : ++b return the new value.
+
+let a=5;
+console.log(a++); //5
+console.log(a); // 6
+
+let b=5;
+console.log(++b); //b+1=b; 6
+console.log(b); // 6
+
+
+
+Ternary Operator:
+-----------------
+The ternary operator is a short way to choose between two expressions based on a condition.
+
+
+let marks=75;
+
+let result=marks>=35?"PASS":"FAIL";
+console.log(result)
+
+condition ? valueIfTrue : valueIfFalse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Encapsulation :
+---------------
+Suppose you have a bank account . Should everyone be allowed to change your balance directly ? No . 	A bank needs rules for depositing and withdrawing money.
+
+Encapsulation means grouping data and realted methods together and controlling how the data can be accessed or changed.
+
+In JavaScript , we can use private fields , written with #, to prevent outside code from directly accessing those fields.
+
+class BankAccount
+{
+    #balance; // 5000
+    constructor(initialBalance) // initialBalance=5000 is update once object creating
+    {
+       this.#balance=initialBalance; 
+
+    }
+    deposit(amount)
+    {
+        if(amount>0) // 2000 >0
+        {
+            this.#balance+=amount; // this.#balance=this.#balance+amount;
+
+            // this.#balance= 5000+2000;
+            //this.#balance=7000;
+        }
+    }
+    getBalance()
+    {
+        return this.#balance;
+    }
+
+}
+const account = new BankAccount(5000);
+account.deposit(2000)
+// account.#balance=900000000000000000000000000000000000000000000000000000000n;
+
+console.log(account.getBalance())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inheritance :
+-------------
+Imagine that Animal is a General class (Parent). A dog and a cat are both animals. They have common characterstics, such as eating , but they can also perform different actions.
+
+Instead of writing the same common code repeatedly, we can create a parent class and let child classes inherit from it.
+
+
+Parent Class or Super Class or Base Class: The class whose behaviour is inherited
+
+Child Class : The class that extends another class.
+
+extends : Establish class inheritance
+
+super() : Calls the parent class constructor when initializing a derived class.
+
+
+class Animal 
+{
+    constructor(name)
+    {
+        this.name=name;
+    }
+    eat()
+    {
+        console.log(this.name+" is eating")
+    }
+
+}
+
+class Dog extends Animal{
+    bark()
+    {
+        console.log(this.name+ " is barking")
+    }
+}
+class Cat extends Animal{
+    meow()
+    {
+        console.log(this.name+" Says meow")
+    }
+}
+
+const dog=new Dog("Tommy");
+const cat= new Cat("Kitty");
+dog.eat()
+dog.bark()
+cat.eat()
+cat.meow()
+
+
+super():
+
+
+Playwright :
+------------
+Playwright is an Open Source automation testing framework developed by Microsoft.
+
+It helps us automate web applications across different browsers.
+
+Using  Playwright , We can automate:
+
+1. Login functionality
+2. Registration functionalities
+3. E-commerce applications
+4, API Testing
+5. Cross browser testin etc..
+
+
+Supported Browsers:
+
+1. Chromium - Chrome and Edge Browser
+2. Firefox - firefox 
+3. Webkit - Safari Browser
+
+
+
+Browser , Browser Context , Page :
+---------------------------------
+
+1. Browser
+2. Browser Context
+3. Page
+
+
+Before writing automation scripts , we need to understand how playwright laucnhes a browser , creates an isolated session , and opens a web page.
+
+Imagine you are opening Google Chrome Manually.
+
+1. First , you open the  Chrome Browser
+2. Next , You create a new user session
+3. Finally , You Open  Google.com in a tab.
+
+In Playwright , these three activities are represented by Browser , Browser Context , and Page.
+
+What is Browser in Playwright ?
+
+Browser is the actual browser instance launched by Playwright automation.
+
+Playwright supports three major browser engines.
+
+1. Chromium --- Chrome and Edge
+2. Firefox ---- Gecko 
+3. Webkit - Safari
+
+Examples of Chrmoum based browsers Included Google Chrome and Microsoft Edge.
+
+import {chromium,test} from '@playwright/test';
+test('Browser Instance Launching',async({page})=>{
+
+  // Laucnh browser
+   const browser= await chromium.launch({headless:false});
+   console.log("Browser is launched")
+   // Close Browser
+
+   await browser.close();
+})
+
+
+What is the difference between Headless and Headed Mode ?
+
+
+
+Headless:
+
+1. Browser runs in background
+2. No graphical browser window
+3. Useful for CI/CD pipelines
+4. headless: true
+
+
+Headed:
+
+1. Browser is visible
+2. Graphical browser window
+3. Useful for debugging
+4. headless:false
+
+
+Browser Context :
+------------------
+
+Browser Context is an Isolated Browser session created inside the browser Instance.
+
+Each browser Context maintain it's own:
+
+1. Cookies
+2. Local Storage
+3. Session Storage
+4. Cache and Session State
+5. Permissions
+
+
+Imagine you are using Google Chrome.
+You have two different users:
+
+User A : Suresh
+
+User B : Rahul
+
+Both users are accessing the same application, but their login sessions are different.
+
+
+User A logs in with his Credentials
+
+User B logs in with his own credentials
+
+Both sessions must remain independent.
+
+
+This is exactly why Playwright provides Browser Context.
+
+What is Page ?
+
+Page represents an Individual browser tab or window inside a Browser Context.
+
+
+Using page , we interact with web elements and perform automation operations
+
+=================================================================================
+
+DOM Fundamentals and Locators:
+-------------------------------
+
+1. How a browser understands and represents an HTML page.
+2. How Playwright identifies and interacts with elements on a web page.
+
+What is DOM ?
+
+DOM stands for Document Object Model
+
+DOM is a programming representation of an HTML document . The browser converts HTML into a tree like structure , allowing JavaScript and automation tools to access and interact with page elements.
+
+<title>Automation Testing Playground | TechWithSuresh Academy</title>
+
+
+<html> - Root element
+
+<head> - Page meta data
+
+<title> - Browser tab title
+
+<body> - Visible Page Content
+
+<h1> - Heading
+
+<input> - Input filed
+
+<button> - Button
+
+How DOM represents HTML:
+
+html
+  head
+     title - LoginPage
+  body
+       h1 - Welcome
+       input - Username
+       input - Password
+       button - Login Button
+
+
+Parent - Element containing anothe element - body
+
+Child - Direct element inside a parent - input
+
+Sibling - Elements sharing the same parent - Username and Password inputs
+
+Ancestor - Any element above an element - html
+
+Descendant - Any element inside anothe element - button inside body
+
+Attribute - 	Additional element information - id , class , name , type
+
+
+Text node - Text Contained in an element - Login
+
+
+<div id="login-form">
+<input id="username">
+<input id="password">
+<button>Login</button>
+</div>
+
+
+Here:
+
+
+1. div is the parenet
+2. Both inputs and buttons are childrens
+3. Username and password are siblings
+4. The button is a decendant of the div
+5.  id="username", id is an attribute 
+
+HTML Attributes and Values:
+---------------------------
+Attributes help identify elements
+
+<input id="test-input-text" data-testid="test-input-text" placeholder="Enter your full name" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60" name="textInput" value="">
+
+input - tag
+
+id ,data-testid,placeholder,class- Attribute
+test-input-text- Value
+
+
+
+
+
+
+
+
+Playwright Locators:
+--------------------
+
+What is a Locator ?
+
+A locator is a mechanism used to identify web elements on a web page.
+
+Locator = Address of a web element
+
+Examples:
+
+1. Username textbox
+2. Password textbox
+3. Login button
+4. Search box
+5. Submit button
+
+
+Why do we use Locators ?
+
+Suppose an application contains:
+
+1. 20 Text Boxes
+2. 15 buttons
+3. 10 links
+4. 5 dropdowns
+
+How can Playwright Identify which particular textbox or button we want to interact with ?
+Locators
+
+await page.locator('#username').fill('Suresh');
+await page.locator('#password').fill('admin123');
+await page.locator('#login').click();
+
+Types of Locators in Playwright :
+---------------------------------
+
+Built in Locators:
+
+1. getByRole()
+2. getByText()
+3. getByLabel()
+4. getByPlaceholder()
+5. getByAltText()
+6. getByTitle()
+7. getByTestId()
+
+
+CSS and XPath
+
+1. Css Selectors
+2. Xpath expressions
+
+
+
+Locator API:
+
+1. locator()
+2. first()
+3. last()
+4. nth()
+5. filter()
+6. and()
+7. or()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Built in Locators:
+
+1. getByRole()
+2. getByText()
+3. getByLabel()
+4. getByPlaceholder()
+5. getByAltText()
+6. getByTitle()
+7. getByTestId()
+
+In Real time applications , we have different types of elements:
+
+1. textboxes
+2. Buttons
+3. Links
+4. Labels
+5. Images
+6. Heading
+7. Dropdowns
+8. Radiobuttons
+
+
+
+
+1. getByRole() :
+
+getByRole() identifies elements based on their accessible role.
+
+For example:
+1. Button
+2. Link
+3. Heading
+4. Chekbox
+5. Radio
+6. Text	Box
+7. Searchbox
+8. Combobox
+9. List
+10. ListItem
+
+page.getByRole('role',{name:'accessiblename'})
+
+<button type="button" id="test-click-button" data-testid="test-click-button" data-test="click-button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50">Click Me</button>
+
+await page.getByRole('button',{name:'Click Me'}).click();
+
+1. getByRole() - Locator Method
+2. button - Role of the element
+3. name - Accessible name
+4. click() - Performs the click action
+
+
+<input aria-label="Locator name input" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60" name="locatorName">
+
+
+await page.getByRole('textbox',{name:'Locator name input'})
+
+
+<a id="test-normal-link" data-testid="test-normal-link" href="#basic-actions" class="text-brand underline">Normal Link</a>
+
+
+
+await page.getByRole('link',{name:"Normal Link"}).click();
+
+
+
+
+<input id="test-reg-first-name" data-testid="test-reg-first-name" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60" name="firstName" value="">
+
+page.getByRole('textbox',{name:'test-reg-first-name'})
+
+
+attribute="value"
+
+
+1. getByRole()
+2. getByText()
+3. getByLabel()
+4. getByPlaceholder()
+5. getByAltText()
+6. getByTitle()
+7. getByTestId()
+
+
+getByText():
+------------
+
+getByText() identifies an element based on the text displayed on the webpage.
+
+
+<button type="button" id="test-click-button" data-testid="test-click-button" data-test="click-button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50">Click Me</button>
+
+<button type="button" data-testid="test-nav-toggle" aria-expanded="false" aria-controls="test-playground-nav" class="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50 w-full lg:hidden">Browse sections</button>
+
+
+await page.getByText('Browse sections',{exact:true}).click();
+
+Partial Text:
+
+<p>Welcome to our Automation Application</p>
+
+await page.getByText('Welcome to our').isVisible();
+
+By default , Playwright performs substring matching for string text.
+
+<div>Your registration was successful</div>
+
+await page.getByText("Your registration was successful").isVisible();
+
+<div>iPhone 17</div>
+
+await page.getByText('iPhone 17',{exact:true}).isVisible();
+
+
+getByLabel():
+-------------
+
+getByLabel() identifies form control using their associated Label
+
+<label for="test-input-text" class="text-xs font-semibold text-muted-foreground">Text input (required)</label>
+
+<input id="test-input-text" data-testid="test-input-text" placeholder="Enter your full name" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60" name="textInput" value="">
+
+
+await page.getByLabel('Text input (required)').fill("student@gmail.com")
+
+
+<label for="password">Password</label>
+
+<input type="password" id="password">
+
+await page.getByLabel('Password').fill('abc');
+
+
+
+<label for="email">Email Address</label>
+
+<input type="text" id="email">
+
+await page.getByLabel('Email Address').fill('suresh@gmail.com')
+
+
+<input type="checkbox" id="terms">
+
+<label for="terms">
+    I Accept Terms and Conditions
+</label>
+
+await page.getByLabel(' I Accept Terms and Conditions').click();
+
+<label>
+    Username
+    <input type="text">
+</label>
+
+
+
+await page.getByLabel('Username').fill('add')
+
+
+<label for="email">Email</label>
+<input id="email">
+
+await page.getBytext('Email',{exact:true}).getText();
+
+await page.getByLabel('Email').fill('admin@gmail.com')
+
+getByText() identifies text containing elements , where as getByLabel() identifies form controls associated with labels.
+
+getByPlaceholder():
+-------------------
+
+getByPlaceholder() - Identifies input elements using their placeholder attribute.
+
+<input id="test-input-text" data-testid="test-input-text" placeholder="Enter your full name" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60" name="textInput" value="">
+
+
+await page.getByPlaceholder('Enter your full name').fill('add');
+
+
+<input
+    type="text"
+    placeholder="Enter Username">
+
+await page.getByPlaceholder('Enter Username').fill('sandhya');
+
+
+<input
+    type="password"
+    placeholder="Enter Password">
+
+await page.getByPlaceholder('Enter Password').fill('sriya');
+
+<input
+    type="search"
+    placeholder="Search Products">
+
+await page.getByPlaceholder('Search Products').fill('iphone17')
+
+Partial Placeholder:
+
+
+await page.getByPlaceholder('Search',{exact:false}).fill('iphone17');
+
+
+getByAltText():
+---------------
+It Identifies elements using their alternative text , generally the alt attribute of images.
+
+<img src="logo.png"
+     alt="Company Logo">
+
+await page.getByAltText('Company Logo').isVisible();
+
+
+<img src="laptop.png"
+     alt="HP Laptop">
+
+
+await page.getByAltText('HP Laptop').isVisible();
+
+
+Partial Matching:
+
+
+await page.getByAltText('Laptop',{exact:false})
+
+
+<img src="logo.png"
+     alt="Application Logo"
+     onclick="alert('Logo clicked')">
+
+await page.getByAltText('Application Logo').click();
+
+
+getByAltText() is mainly useful for images and image like elements with alternative text . It is not a general locator for every HTML attribute.
+
+
+getByTitle():
+-------------
+It identifies an element using its HTML titile attribute
+
+<button type="button" data-testid="test-tooltip-information" title="Information tooltip content" aria-describedby="tooltip-information" class="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50">Information</button>
+
+
+await page.getByTitle('Information tooltip content').click();
+
+
+<button title="Close Window">
+    X
+</button>
+
+await page.getByTitle('Close Window').click();
+
+
+<img src="profile.png"
+     title="User Profile">
+
+await page.getByTitle('User Profile').isVisible();
+
+Partial Title
+
+<button title="Download Report">
+    Download
+</button>
+
+Partial:
+
+await page.getByTitle('Report',{exact:false}).click();
+
+Full:
+
+await page.getByTitle('Download Report',{exact:true}).click();
+
+
+
+getByTestId():
+--------------
+
+It Identifies an element using a dedicated test ID attribute.
+
+This attribute is generally added by developers to make automation testing easier.
+
+<button type="button" data-testid="test-tooltip-information" title="Information tooltip content" aria-describedby="tooltip-information" class="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50">Information</button>
+
+await page.getByTestId('test-tooltip-information').click();
+
+
+<button data-testid="login-button">
+    Login
+</button>
+
+
+await page.getByTestId('login-button').click();
+
+
+<input
+    type="text"
+    data-testid="username-input">
+
+await page.getByTestId('username-input').fill('add')
+
+
+<button data-testid="add-to-cart">
+    Add to Cart
+</button>
+
+
+await page.getByTestId('add-to-cart').click();
+
+<div data-testid="order-confirmation">
+    Order Placed Successfully
+</div>
+
+
+await page.getByTestId('order-confirmation').toHaveText('Order Placed Successfully');
+
+
+
+
+
+
+
+
+
+CSS & Xpath
+
+
+Locators - Completed
+
+Playwright Actions and Interactions  - 2 Days
+
+Assertions and Synchronization - 2 days
+
+Handling Reatime Web Elements -- One Week
+
+Playwright Test Runner (Hooks) -2 Days
+
+Fixtures -2 Days
+
+----------------------------------
+
+Page Object Model - One Week- Project Implementation
+
+Data Driven Testing - One weekend ( 2 Days)
+
+
+Advanced Playwright Concepts: 3 DAYS
+
+1. Gloabal Setup and Teardown
+2. Authentication and Storage State
+3. Session Management
+4. API Testing
+5. Netwrok Interception
+6. Route and Fulfill
+7. Mocking API responses
+8.Debugging
+
+
+API Testing with Playwright - One Weekend i will focus on Manual API testing with Postman
+
+DataBase Testing - 5 days
+
+
+Framework Development , Git , CI/CD with Jenkins
+
+Docker and Advanced Tools
+
+AI-Powered Automation Testing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
