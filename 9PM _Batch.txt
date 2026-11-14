@@ -1163,6 +1163,271 @@ AI-Powered Automation Testing
 
 
 
+CSS and Xpath :
+---------------
+
+
+Wheneevr we perform automation testing , we need to identify web elements such as buttons , textboxes , links , dropdowns, checkboxes , and tables.
+
+How does Playwright Identify these elements?
+
+Playwright Uses Locators.
+
+A Locator is a mechanism used to identify an element on a webpage and perform actions on it.
+
+Example HTML :
+
+
+
+<button type="button" id="test-click-button" data-testid="test-click-button" data-test="click-button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50">Click Me</button>
+
+
+
+
+<input aria-label="Locator name input" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-60" name="locatorName">
+
+
+
+
+Login Flow:
+
+Login Link:
+
+<a data-testid="nav-login" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50" href="/shop/login">Login</a>
+
+await page.getByTestId('nav-login').click();
+
+
+Email:
+
+<input id="email" required="" data-testid="login-email" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 mt-1" type="email" value="demo@shopease.test" name="email">
+
+await page.getByTestId('login-email').fill('demo@shopease.tes')
+
+
+
+
+Password:
+<input id="password" required="" data-testid="login-password" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60" type="password" value="Demo@123" name="password">
+
+await page.getByTestId('login-password').fill('Demo@123');
+
+
+
+Rememeber Me CheckBox:
+
+<input data-testid="remember-me" type="checkbox" name="remember">
+
+await page.getByTestId('remember-me').check();
+
+
+Login Click:
+
+<button type="submit" data-testid="login-submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50">Login</button>
+
+
+await page.getByTestId('login-submit').click()
+
+CSS Selector is a pattern used to identify HTML elements based on their attributes , Id's , classes and relationships.
+
+<input id='username' class='input-field' type='text'/>
+
+CSS:
+
+id ----> attribute ----> #
+
+#username - Id attribute
+
+class ----> attribute -----> .
+
+.input-field
+
+TagName -----> input
+
+tagName[attribute="value"]
+
+input[type="text"]
+
+
+CSS Selector Types:
+--------------------
+1. Tag Name Selector:
+
+
+Identifies elements using HTML tag names.
+
+<button >Login</button>
+
+await page.getByRole('button',{name:'Login',{exact:true}})
+
+
+
+<input type="text">
+< a href="/home">Home</a>
+
+button , input , a
+
+Playwright :
+
+await page.locator('button').click()
+await page.locator('input').fill('')
+await page.locator('a').click()
+
+
+Don't use Playwright Built In Locators(7 Locators) , You have a Input tag , inside that ,class attribute without using Built in locators how can you identifiy that element ?
+
+
+Id selector :
+
+ID is identified using #
+
+<input id="global-search" data-testid="search-input" placeholder="Search for products, brands and more" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60" value="" name="q">
+
+
+#global-search
+
+await page.locator('#global-search').click();
+
+
+
+<input id="email" required="" data-testid="login-email" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 mt-1" type="email" value="demo@shopease.test" name="email">
+
+
+await page.locator('#email').fill('test@gmail.com')
+
+
+
+<input id="password" required="" data-testid="login-password" class="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60" type="password" value="Demo@123" name="password">
+
+await page.locator('#password').fill('admin@123#')
+
+
+
+
+<input data-testid="filter-category-electronics" type="checkbox" id="fileter checkbox">
+
+await page.locator('#fileter checkbox').click();
+
+class Selector :
+Class is identified using .
+
+
+<input data-testid="filter-category-electronics" type="checkbox" id="fileter checkbox" class="filter-checkbox">
+
+await page.locator('.filter-checkbox').click();
+
+
+
+Attribute Selector:
+-------------------
+[attribute='value']
+
+tagname[attribute='value']
+
+<input data-testid="filter-category-electronics" type="checkbox" id="fileter checkbox" class="filter-checkbox">
+
+await page.locator('[data-testid="filter-category-electronics"]').click();
+
+
+
+<a aria-label="View details for Aurora 4K Smart TV 55" href="/shop/product/aurora-4k-smart-tv-55"><div data-testid="product-image-P001" aria-label="Aurora 4K Smart TV 55 image 1" role="img" class="flex items-center justify-center rounded-lg text-center text-sm font-bold tracking-wide h-36 w-full" style="background: linear-gradient(135deg, oklch(0.9 0.06 28), oklch(0.72 0.12 58)); color: oklch(0.22 0.05 262);"><span class="px-3">Nexon</span></div></a>
+
+
+await page.locator('[aria-label="View details for Aurora 4K Smart TV 55"]')
+
+
+Multiple Attribute Selector:
+---------------------------------
+
+
+[attribute='value'][attribute='value']
+
+
+<button type="submit" data-testid="search-submit" aria-label="Search" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search size-4" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button>
+
+await page.locator('[data-testid="search-submit"] [aria-label="Search"]')
+
+Multiple Class Selectors:
+------------------------
+
+<button class="btn primary active">Submit</button>
+
+'.btn.primary.active'
+
+await page.locator('.btn.primary.active').click()
+
+
+No Spaces between classes means the same element must contain all those classes.
+
+
+Descendant Selector:
+---------------------
+
+<div class='login-form'> (parent)
+   <input id='username'> (child)
+   <input id ='password'> (child)
+</div>
+
+.login-form input
+
+await page.locator('.login-form input').first().fill('admin');
+
+Space means descenadant at any depth
+
+Child Selector:
+---------------
+
+> Identifies the direct children only
+
+<div class='login-form'> (parent)
+   <input id='username'> (child)
+   <input id ='password'> (child)
+</div>
+
+.login-form>input
+
+await page.locator('.login-form>input').fill('admin')
+
+
+Difference:
+
+parent>tagname   Any descendant tag
+
+parent >tagname  Direct Child tag
+
+
+mt-3 grid grid-cols-2 gap-2
+
+
+await page.locator('.login-form>input[id ='password']').fill('admin@123#')
+
+Xpath Types:
+-------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
