@@ -1408,7 +1408,196 @@ Xpath Types:
 
 
 
+Basic Actions Perform in Playwright:
+------------------------------------
+import {test,expect} from '@playwright/test';
 
+test('Basic Actions Demo',async({page})=>{
+
+    await page.goto('https://techwithsuresh.lovable.app/test');
+
+    // Click on the button
+    await page.getByTestId('test-click-button').click();
+
+    // Double click on the button
+    await page.getByTestId('test-double-click-button').dblclick();
+
+    // Right click on the button
+    await page.locator('#test-context-area').click({button:'right'});
+
+    await page.getByTestId('test-input-text').fill('Hello World');
+
+    await page.getByTestId('test-reg-gender-male').check();
+
+    await page.getByTestId('test-reg-skill-javascript').check();
+
+     await page.getByTestId('test-reg-skill-javascript').uncheck();
+
+     await page.locator('#test-hover-card').hover();
+
+     await page.getByTestId('test-keyboard-input').press('Tab');
+     await page.getByTestId('test-keyboard-input').press('Enter');
+     await page.getByTestId('test-keyboard-input').press('ArrowDown');
+     await page.getByTestId('test-keyboard-input').press('ArrowUp');
+     await page.getByTestId('test-keyboard-input').press('Escape');
+     await page.getByTestId('test-keyboard-input').press('Control+a');
+     await page.getByTestId('test-keyboard-input').press('Control+c');
+     await page.getByTestId('test-keyboard-input').press('Control+v');
+     await page.getByTestId('test-keyboard-input').press('Control+x');
+     await page.getByTestId('test-keyboard-input').press('Control+z');
+     await page.getByTestId('test-keyboard-input').press('Control+y');
+
+     // Alerts
+     page.on('dialog', async (dialog) => {
+         console.log(dialog.message());
+         await dialog.accept();
+         await dialog.dismiss();
+     });
+
+     await page.getByTestId('test-alert-button').click();
+
+});
+
+
+Assertions in Playwright :
+---------------------------
+
+What is an Assertion ?
+
+Suppose we are testing a login application.
+
+Test Scenario:
+
+1. Open the application
+2. Enter Username
+3. Enter Password
+4. Click Login
+5. Verify whether the dashboard is displayed.
+import {test,expect} from '@playwright/test'
+
+test('Verify Login Functionality',async({page})=>{
+
+    await page.goto("https://techwithsuresh.lovable.app/shop/login");
+    await page.locator('#email').fill("demo@shopease.test");
+    await page.locator('#password').fill("Demo@123");
+    await page.getByTestId("login-submit").click();
+
+    // Assertions
+
+    await expect(page.getByTestId("shop-demo-banner")).toBeVisible();
+
+})
+
+Expected Result : Dashboard should be visible after  successful login.
+
+If the dashboard is not visible , the assertion fails and Playwright marks the test
+as failed.
+
+Types of Assertions:
+
+1. Auto retrying Assertions
+Used to verify web elements and their properties . Playwright automatically retries
+untill the condition passes or times out.
+
+toBeVisible();
+
+2. Non retrying Assertions
+
+Used to verify immediate values , arrays , objects , and other data.
+
+example: toEqual();
+
+
+3. Soft Assertions
+
+
+Test execution Continues even when an assertion failes and failures are reported
+ at the end of the test.
+
+ expect.soft();
+
+Auto Retrying Assertions :
+--------------------------
+
+These are most frequently used assertions in real time Playwright Projects.
+
+Assume we have the following HTML elements:
+
+Login - Button
+Input Box
+
+Visibility Assertions:
+----------------------
+
+1. toBeVisible()  - Verify Element is visible.
+2. toBeHidden()  - Verify element is hidden
+
+await expect(page.locator('#title')).toBeVisible();
+await expect(page.locator('#loader)).toBeHidden();
+
+
+Element State Assertions:
+-------------------------
+
+
+1. toBeEnabled() - Verify element is enabled.
+2. toBeDisabled() - Verify element is disabled
+3. toBeEditable() - Verify element is toBeEditable
+4. toBeFocused() - Verify element has keyboard focus
+5. toBeChecked() - Verify checkbox or raido button is checked.
+
+Text Assertions :
+
+1. toHaveText() - Verify exact text or matching text.
+2. toContainText() - Verify text contains expected content.
+
+Input Assertions:
+
+1. toHaveValue() - Verify Input field value
+2. toHaveValue() - Verify values of a multiple select.
+
+
+Atttribute Assertions:
+
+1. toHaveAttribute() - Verify an HTML attribute
+2. toHaveClass() - Verify CSS class
+3. toHaveCss() - Verify CSS property
+4. toHaveId() - Verify element ID
+5. toHaveJsProperty() - Verify JavaScript property.
+
+
+Element Count Assertions:
+
+1. toHaveCount() - Verify number of matching elements.
+
+Screenshot Assertions :
+
+toHaveScreenshot() - Compare screenshot with a stored baseline screenshot.
+
+
+Advanced Locator Assertions:
+
+1. toBeAttached() - Verify element is attached DOM.
+2.  toBeEmpty() -  Verify element has no content
+3. toBeInViewport() -  Verify element is with toBeInViewport
+4. toContainClass() -  Verify element contains specified CSS classes
+5. toHaveAccesibleName() - Verify accessible name
+6. toHaveRole() -  Verify ARIA Role
+7. toMatchAriaSnapshot() -  verify accessiblity tree snapshot.
+
+
+
+Page Assertions :
+
+1. toHaveTitle() - Verify page title
+2. toHaveURL() - Verify the Current Page toHaveURL
+3. toHaveScreenshot() - Verify the page screenshot
+4. toMatchAriaSnapshot() - Verify accessiblity snapshot
+
+
+API Responses Assertions:
+
+1. toBeOk() - Verify response has a successful HTTP status(200-299)
 
 
 
