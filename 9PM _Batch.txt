@@ -1599,11 +1599,193 @@ API Responses Assertions:
 
 1. toBeOk() - Verify response has a successful HTTP status(200-299)
 
+Non - Retrying Assertions (or) Generic Values assertions:
+==========================================================
+
+Validate the current value immediately. They do not automatically retrying
+when the assertion fails
+
+
+Imagine we have a variable conatining the employee Name
+
+let employeeName= "Suresh";
+Now we want to verify whether the employee name is Suresh
+
+
+We write :
+
+expect(employeeName) . toBe("Suresh")
+
+Playwright checks the current value immediately.
+
+If the condition is true ,  the assertion is passes
+If the condition is false , the assertion fails immediately
+
+
+It does not wait  for the value to change.
+
+
+Syntax:
+
+expect(actualValue).matcher(expectedValue);
+
+let age : number = 27;
+
+expect(age).toBe(27)
+
+Important: 
+
+Non retrying assertions are appropriate for JavaScript values calculation , API statuscodes
+, and already retrived data. They are not suitable when you need to wait fr a browser
+element or page state to change.
+
+1. toBe() - Checks whether the actual value is the exactly the Expected
+value.
+
+let age : number = 27;
+
+expect(age).toBe(27)
 
 
 
+2. toEqual() : Checks whether two values have equivalent contents using 
+               deep equality
+
+test('ToEQUAL Assertion',async()=>{
+
+let actualEmployee= {
+     id : 101,
+     name : "Suresh",
+     department : "Testing"
 
 
+};
+
+let expectedEmployee={
+
+
+    id : 101,
+    name : "Suresh",
+    department : "Testing"
+};
+
+expect(actualEmployee).toEqual(expectedEmployee)
+
+})
+
+toBe() and toEqual() are different.
+
+toBe() checks whether two  values are the same according to Object.is()
+
+toEqual() checks whether objects or arrays have equivalent contents
+
+toStrictEqual():
+----------------
+
+Checks deep equality more strict, including distinctions such as Undefined
+properties and sparse arrays.
+
+test('toStrictEqual assertion', async()=>{
+   
+   let actual ={ name : "Suresh",age : 27};
+
+   let expected = {name :"Suresh", age : 27};
+   expect(actual).toStrictEqual(expected)
+
+
+})
+
+toBeTruthy():
+
+Checks whether a value is truthy.
+
+test('toBeTRUTHY ASSERTION', async()=>{
+
+
+    let  isLoggedIn : boolean = true;
+
+    expect(isLoggedIn).toBeTruthy();
+})
+
+toBeFalsy(): Checks whether a value is falsy.
+
+
+test('toBefalsy ASSERTION', async()=>{
+
+
+    let  isLoggedIn : boolean = false;
+
+    expect(isLoggedIn).toBefalsy()
+})
+
+
+toBeNull() - Checks whether a value is exactly null
+
+expect(actualvalue).toBeNull();
+
+toBeUndefined() - Checks whether a variable's value is undefined.
+
+expect(value).toBeUndefined();
+
+
+toBeDefined() - Checks whether a value is not undefined.
+
+toBeNaN() - Checks whehter a value is Nan (Not a Number);
+
+toBeGreaterThan() -  Checks whether the actual number is greater than the expected number
+
+
+let salary : number = 85000
+
+expect(salary).toBeGreaterThan(50000);
+
+toBeGreaterThanOrEqual() : Checks whether the actual number is greater than or equal to the expected number.
+
+toBeLessThan() : Checks whether tthe actual number is less than the expected number.
+
+toBeLessThanOrEqual() - Checks whether the actual number is less than or equal to tthe expected number
+
+toBeCloseTo() - Checks whether two floating point approximately equal.
+
+expect(10.123).toBeCloseTo(10.12,2)
+Here , 2 represents the number of decimal of precision.
+
+
+toContain() - Checks whether a string contains a substring or anyn array / set contains an elements
+
+
+let message : string = "Welcome to Playwright"
+
+expect(message).toContain("Playwright");
+
+
+toContainEqual() - Checks whether an array or set contains an element with matching contents.
+
+toHaveLength() - Checks the length of a string or array
+
+toHaveProperty() - Checks whether an object has a specified property and optionally checks its value.
+
+let employee = {id :101 , name:"Suresh"}
+
+expect(employee).toHaveProperty(name);
+
+
+toMatch() - Checks whether a sring matches a regular expressions
+
+let email : string = "Suresh@gmail.com";
+expect(email).toMathc(/gmail\.com$/)
+
+
+toMatchObject() - Checks whether an object contains the expected proprties and matching values
+. Additonal properties are allowed
+
+
+let employee = {id :101 , name:"Suresh", department: "Testing", salary:85000}
+
+expect(employee).toMatchObject({name:"Suresh", department:"Testing})
+
+
+toBeInstanceOf() - Checks whether an object is an instance of a particular class.
 
 
 
