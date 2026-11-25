@@ -1816,3 +1816,168 @@ toBeInstanceOf() - Checks whether an object is an instance of a particular class
 
 
 
+
+Website URL : https://techwithsuresh.lovable.app/test
+
+Github Repo : https://github.com/Suresh-Playwright/PlaywrightAutomationTetingBatch_9PM
+
+Playwright Test Runner :
+
+
+Imagine we are automating an e-commerce application.
+
+When we click the Login button , the application should navigate to the 
+Products page.
+
+But sometimes the application takes 2 seconds , some time 5 seconds and 
+some times 15 seconds.
+
+How long should Playwright wait for the Operation ?
+
+Should it wait forever ?
+
+No
+To avoid waiting indefinetely , playwright provides a concept called Timeout.
+
+
+Timeouts in Playwright:
+-----------------------
+A timeout is the maxiumum amount of time Playwright waits for a particular operations
+or test execution before considering it timed out.
+
+Types of Timeouts:
+
+Test Time Out - Maxium duration of a test - 30 seconds
+
+
+Expected timeout -  Maxium time for a retrying  assertion - 5 seconds
+
+Action timeout - Maximum time for an acion - No separate limit by default.
+
+
+Navigation timeout - Maximum time for navigation - ||
+
+Gloabal timeout -  Maximum duration of the entire test run - No limit by default
+
+
+import {test,expect} from "@playwright/test";
+test('Login Test',async({page})=>{
+
+    test.setTimeout(60000);
+
+    await page.goto("https://www.google.com");
+    
+})
+
+
+
+test.setTimeout(60000) ;
+
+It sets the test timeout to 60000 milliseconds , which is 60 seconds.
+
+
+Timeout using playwright.config.ts
+
+timeout:60000,
+  expect :{
+    timeout : 100000
+  },
+use{
+actionTimeout : 15000,
+navigationTimeout : 60000
+  },
+
+
+Test Time Out - Maxium duration of a test - 30 seconds
+
+
+Expected timeout -  Maxium time for a retrying  assertion - 5 seconds
+
+Action timeout - Maximum time for an acion - No separate limit by default.
+
+
+Navigation timeout - Maximum time for navigation - ||
+
+ 
+
+Individual action timeout:
+--------------------------
+
+import {test,expect} from "@playwright/test";
+test('Login Test',async({page})=>{
+
+    test.setTimeout(60000);
+
+    await page.goto("https://www.google.com");
+
+    await page.locator('#login').click({timeout:10000})
+    
+})
+
+
+
+What happens if an element is not available within the specified timeout?
+Playwright throws a timeout error and the test fails , unless the failure is handled or
+expected.
+
+Realtime recommendation:
+
+Avoid increasing every timeout unnecessarily. First investigate whether the application, locator
+or test logic is causing the delay.
+
+
+Parallel execution:
+Suppose we have 100 test classes
+If we execute all 100 test cases one after another it may take 30 min.
+
+Can we execute multiple test cases at the same time ?
+Yes , Playwright  supports Parallel Execution.
+
+Parallel execution means running multiple test cases simultaneously using multiple
+worker process
+
+Sequential Execution :
+
+Test 1 ----> Test 2 ----> Test 3 ----> Test 4
+
+Test execute one after another.
+
+Parallel Execution:
+
+
+Worker 1
+
+Test 1
+
+Test 2
+
+Worker 2
+
+Test 3
+
+Test 4
+
+  fullyParallel: true,
+  workers : 4,
+
+  fullyParallel : true - allows individual tests within files to execute
+  in parallel , subject to project and describe level settings.
+
+  workers: 4 - allows up to four worker processes
+
+Running 4 tests using 4 workers
+[chromium] › tests\parallelexecution.spec.ts:11:1 › Test Case 3
+Test Case 3 executed
+[chromium] › tests\parallelexecution.spec.ts:3:1 › Test Case 1
+Test Case 1 executed
+[chromium] › tests\parallelexecution.spec.ts:7:1 › Test Case 2
+Test Case 2 executed
+[chromium] › tests\parallelexecution.spec.ts:15:1 › Test Case 4
+Test Case 4 executed
+
+Parallel execution order is not guaranteed. Tests must not depend on one another 
+
+or modifiy shared data without proper isolation.
+
+
+
